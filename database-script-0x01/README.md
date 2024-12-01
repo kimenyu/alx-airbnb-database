@@ -10,7 +10,7 @@ Define the database schema for the Airbnb project, ensuring proper structure, co
 This file contains SQL statements to:  
 1. Create tables for entities: User, Property, Booking, Payment, Review, and Message.  
 2. Define relationships between entities using primary and foreign keys.  
-3. Apply constraints to ensure data integrity (e.g., rating between 1-5, unique email addresses).  
+3. Apply constraints to ensure data integrity
 4. Add indexes to frequently queried columns like `email`, `property_id`, and `booking_id`.  
 
 ---
@@ -26,13 +26,6 @@ This file contains SQL statements to:
 
 ---
 
-## How to Use  
-
-1. Open your preferred database client (e.g., MySQL, PostgreSQL).  
-2. Execute the SQL commands in `schema.sql`.  
-3. Verify that the tables and constraints have been created successfully.  
-
----
 
 ## Indexes  
 
