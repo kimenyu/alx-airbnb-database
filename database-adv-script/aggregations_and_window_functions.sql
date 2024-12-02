@@ -13,7 +13,7 @@ GROUP BY
 ORDER BY
     total_bookings DESC;
 
--- 2. Window function: Rank properties based on the total number of bookings using ROW_NUMBER.
+-- 2. Window function: Rank properties based on the total number of bookings using ROW_NUMBER and RANK.
 WITH PropertyBookingCount AS (
     SELECT
         Property.property_id,
@@ -30,7 +30,8 @@ SELECT
     property_id,
     name,
     booking_count,
-    ROW_NUMBER() OVER (ORDER BY booking_count DESC) AS rank
+    ROW_NUMBER() OVER (ORDER BY booking_count DESC) AS row_number_rank,
+    RANK() OVER (ORDER BY booking_count DESC) AS rank
 FROM
     PropertyBookingCount;
 
