@@ -13,3 +13,17 @@ CREATE INDEX idx_property_location ON Property(location);
 -- 5. Create a composite index on start_date and end_date in the Booking table for optimized date range queries.
 CREATE INDEX idx_booking_dates ON Booking(start_date, end_date);
 
+-- 6. Measure the query performance BEFORE creating the indexes.
+EXPLAIN ANALYZE 
+SELECT User.email, Booking.start_date, Booking.end_date
+FROM User
+JOIN Booking ON User.user_id = Booking.user_id
+WHERE Booking.start_date BETWEEN '2024-01-01' AND '2024-01-31';
+
+-- 7. Measure the query performance AFTER creating the indexes.
+EXPLAIN ANALYZE 
+SELECT User.email, Booking.start_date, Booking.end_date
+FROM User
+JOIN Booking ON User.user_id = Booking.user_id
+WHERE Booking.start_date BETWEEN '2024-01-01' AND '2024-01-31';
+
